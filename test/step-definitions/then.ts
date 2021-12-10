@@ -10,8 +10,15 @@ import { expect } from "chai";
 
 
   Then(/^I should click on the result and verify the card name is (.*)$/, async function(cardName){
-  let eleValue = await $(`//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl/dt/span[2]/strong`).getText()
-  expect(cardName).to.equal(eleValue)
-  let ele = await $(`//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li/dl`)
-  ele.click()
+    let cardResult = 1
+    for(let i = 0; i < cardResult; i++){
+      let card = await $(`//*[@id="article_body"]/table/tbody/tr/td/div[3]/ul/li[${cardResult}]/dl/dt`)
+      let cardString = await card.getText()
+      if(cardName != cardString){
+        cardResult++
+      }
+      else{
+        card.click()
+      }
+    }  
  })
