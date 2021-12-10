@@ -8,7 +8,6 @@ Feature: search for normal cards
     When I search for <card>
     Then I should click on the result and verify the card name is <cardName>
     When Verify is the card page is for <cardName>
-    When Realize actions for tables
 
     Examples:
       | card                   | cardName               |
