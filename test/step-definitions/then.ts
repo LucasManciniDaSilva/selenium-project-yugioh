@@ -18,6 +18,7 @@ import { expect } from "chai";
         cardResult++
       }
       else{
+        await card.scrollIntoView()
         card.click()
       }
     }  
