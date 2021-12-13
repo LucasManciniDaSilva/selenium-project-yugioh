@@ -5,22 +5,53 @@ let winNumber = 1
 
   
   When(/^I Click on Card Search$/, async function(){
-   let ele = await $(`//*[@id="topmenu_set"]/div[1]/div[1]/div/a/p[2]`)
+
+    let url = await browser.getUrl()
+    
+    console.log(`>> actualUrl: ${url}`)
+    
+    let ele = await $(`//*[@id="topmenu_set"]/div[1]/div[1]/div/a/p[2]`)
+    
     ele.click()
+  
   })
 
   When(/^I search for (.*)$/, async function(cardName){
+    
+    let url = await browser.getUrl()
+    
+    console.log(`>> actualUrl: ${url}`)
+    
     let ele = await $(`[name=keyword]`)
+    
     ele.scrollIntoView()
+    
     await ele.setValue(cardName)
+    
+    console.log(`>> Search for this card: ${cardName}`)
+    
     await browser.keys("Enter")
-})
+
+  })
 
  When(/^Verify is the card page is for (.*)$/, async function(cardName){
+  
+  let url = await browser.getUrl()
+  
+  console.log(`>> actualUrl: ${url}`)
+  
   let winHandles = await browser.getWindowHandles()
+  
   await browser.switchToWindow(winHandles[winNumber])
+  
   let headerTxt = await $(`<h1>`).getText()
-  console.log(headerTxt)
+  
+  console.log(`>> Header value is the same of the card name : ${headerTxt}`)
+
+  console.log(`>> Card name : ${cardName}`)
+  
   expect(headerTxt).to.contain(cardName)
+  
   winNumber = winNumber + 1
+
 })

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "wdio": "wdio run wdio.conf.ts",
-    "webdrive:open": "npx wdio wdio.conf.ts"
+    "wdio": "wdio run config/wdio.test.conf.ts",
+    "webdrive:open": "npx wdio config/wdio.test.conf.ts"
   },
   "keywords": [],
   "author": "",
