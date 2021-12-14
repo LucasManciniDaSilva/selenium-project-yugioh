@@ -1,5 +1,6 @@
 import { When } from '@wdio/cucumber-framework';
 import { expect } from "chai";
+import logger from '../helper/logger';
 
 let winNumber = 1
 
@@ -8,7 +9,7 @@ let winNumber = 1
 
     let url = await browser.getUrl()
     
-    console.log(`>> actualUrl: ${url}`)
+    logger.info(`>> actualUrl: ${url}`)
     
     let ele = await $(`//*[@id="topmenu_set"]/div[1]/div[1]/div/a/p[2]`)
     
@@ -20,7 +21,7 @@ let winNumber = 1
     
     let url = await browser.getUrl()
     
-    console.log(`>> actualUrl: ${url}`)
+    logger.info(`>> actualUrl: ${url}`)
     
     let ele = await $(`[name=keyword]`)
     
@@ -28,7 +29,7 @@ let winNumber = 1
     
     await ele.setValue(cardName)
     
-    console.log(`>> Search for this card: ${cardName}`)
+    logger.info(`>> Search for this card: ${cardName}`)
     
     await browser.keys("Enter")
 
@@ -38,7 +39,7 @@ let winNumber = 1
   
   let url = await browser.getUrl()
   
-  console.log(`>> actualUrl: ${url}`)
+  logger.info(`>> actualUrl: ${url}`)
   
   let winHandles = await browser.getWindowHandles()
   
@@ -46,9 +47,9 @@ let winNumber = 1
   
   let headerTxt = await $(`<h1>`).getText()
   
-  console.log(`>> Header value is the same of the card name : ${headerTxt}`)
+  logger.info(`>> Header value is the same of the card name : ${headerTxt}`)
 
-  console.log(`>> Card name : ${cardName}`)
+  logger.info(`>> Card name : ${cardName}`)
   
   expect(headerTxt).to.contain(cardName)
   

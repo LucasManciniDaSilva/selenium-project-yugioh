@@ -1,12 +1,12 @@
 import { Then } from '@wdio/cucumber-framework';
 import { expect } from "chai";
-
+import logger from '../helper/logger';
 
   Then(/^I Click on normal type card$/, async function(){
     
     let url = await browser.getUrl();
     
-    console.log(`>> actualUrl: ${url}`)
+    logger.info(`>> actualUrl: ${url}`)
     
     let ele = await $(`//*[@id="search_by_other"]/div/div/div[2]/a[1]`)
     
@@ -21,7 +21,7 @@ import { expect } from "chai";
     
     let url = await browser.getUrl();
     
-    console.log(`>> actualUrl: ${url}`)
+    logger.info(`>> actualUrl: ${url}`)
     
     let cardResult = 1
     
@@ -33,7 +33,7 @@ import { expect } from "chai";
     
       if(cardName != cardInfo){
 
-        console.log(`>> This is not the correct card : ${cardInfo}`)
+        logger.info(`>> This is not the correct card : ${cardInfo}`)
     
         cardResult++
     
@@ -43,7 +43,7 @@ import { expect } from "chai";
     
         await card.scrollIntoView()
     
-        console.log(`>> This is the correct card : ${cardInfo}`)
+        logger.info(`>> This is the correct card : ${cardInfo}`)
     
         expect(cardInfo).to.equal(cardName)
     

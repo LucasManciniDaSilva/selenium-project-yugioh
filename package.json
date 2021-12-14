@@ -18,7 +18,8 @@
     "chromedriver": "^96.0.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2",
-    "wdio-chromedriver-service": "^7.2.2"
+    "wdio-chromedriver-service": "^7.2.2",
+    "winston": "^3.3.0"
   },
   "dependencies": {
     "chai": "^4.3.4"

@@ -36,12 +36,6 @@ build/Release
 node_modules/
 jspm_packages/
 
-# Typescript v1 declaration files
-/packages/wdio-protocols/src/commands
-!tests/typings
-!typings/types.ts
-tests/typings/**/dist
-
 # Optional npm cache directory
 .npm
 
@@ -65,7 +59,6 @@ tests/typings/**/dist
 
 **/build
 /*.js
-/*.ts
 devtools.d.ts
 !.eslintrc.js
 !jest.config.js
@@ -90,7 +83,6 @@ website/docs/_*.md
 .*.swp
 .history
 .gradle
-wallaby.conf.js
 tags
 tests/.retry_succeeded
 *.tsbuildinfo
